@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Client rest</string>
+    <string name="app_name">Banque de CVs</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+	<string name="head_text"><u><c>Liste des CVs</c></u></string>
+	<string name="identity_tab"><u><c>Identité</c></u></string>
+	<string name="cursus_tab"><u><c><i>Cursus Universitaire et Pro</i></c></u></string>
+	<string name="competences_tab"><u><c><i>Competences et projets</i></c></u></string>
+	<string name="losirs_tab"><u><c><i>Losirs et Langues</i></c></u></string>
+	<string name="nom_lbl"><u><i>Nom :</i></u></string>
+	<string name="prenom_lbl"><u><i>Prenom :</i></u></string>
+	<string name="adresse_lbl"><u><i>Adresse :</i></u></string>
+	<string name="tel_lbl"><u><i>Tel :</i></u></string>
+	<string name="diplome_lbl"><u><i>Diplome :</i></u></string>
+	<string name="annee_dipl_lbl"><u><i>Année Obtention:</i></u></string>
+	<string name="experience_lbl"><u><i>Expérience :</i></u></string>
+	<string name="annee_exp_lbl"><u><i>Année Expérience:</i></u></string>
+	
+	<string name="titre_cmpt_lbl"><u><i>Titre Competence :</i></u></string>
+	<string name="desc_cmpt_lbl"><u><i>Description:</i></u></string>
+	<string name="projet_lbl"><u><i>Projet :</i></u></string>
+	<string name="annee_projet_lbl"><u><i>Année Projet:</i></u></string>
+	
+	<string name="titre_loisir_lbl"><u><i>Loisirs :</i></u></string>
+	<string name="langue_lbl"><u><i>Langues :</i></u></string>
+	<string name="niveau_lbl"><u><i>Niveau :</i></u></string>
+	
+	<string name="write_cv_lbl"><c><u><i>Rédaction de CV</i></u></c></string>
+	
+	<string name="get_all_CVs_btn"><c><u><i>Lister les CVs Existants</i></u></c></string>
+	<string name="get_CV_By_Id_btn"><c><u><i>Afficher CV par ID</i></u></c></string>
+	<string name="write_cv_btn"><c><u><i>Rédiger un CV</i></u></c></string>
+	
+	<string name="post_cv_btn"><c><u><i>Poster le CV</i></u></c></string>
+	<string name="abort_cv_btn"><c><u><i>Annuler le CV</i></u></c></string>
+	
+	
 </resources>

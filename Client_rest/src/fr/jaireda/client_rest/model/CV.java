@@ -1,6 +1,7 @@
 package fr.jaireda.client_rest.model;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.simpleframework.xml.Element;
@@ -12,7 +13,7 @@ import org.simpleframework.xml.Root;
 
 
 @Root(strict=false, name="cv")
-public class CV {
+public class CV implements Serializable{
 	@Element(name="titre",required=false)
     private String Titre;
 	@Element(name="identite", required=false)

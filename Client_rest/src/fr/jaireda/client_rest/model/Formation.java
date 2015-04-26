@@ -39,9 +39,7 @@ public class Formation {
 
     @Override
     public String toString() {
-        return "Formation{" +
-                "Diplome='" + Diplome + '\'' +
-                ", Année=" + Année +
-                '}';
+        return "Formation{" +"Diplome='" + Diplome + '\'' +", Année=" + Année +'}';
     }
+    
 }

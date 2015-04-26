@@ -5,29 +5,24 @@ package fr.jaireda.client_rest;
 
 import java.util.concurrent.ExecutionException;
 
-import javax.xml.parsers.SAXParserFactory;
-
-import android.app.Activity;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.Version;
-import org.simpleframework.xml.core.Persister;
 import org.springframework.http.converter.xml.SimpleXmlHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import fr.jaireda.client_rest.*;
-import fr.jaireda.client_rest.controller.Utils;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import fr.jaireda.client_rest.controller.VDetailsCV;
 import fr.jaireda.client_rest.model.ArrayAdapter;
 import fr.jaireda.client_rest.model.CV;
 import fr.jaireda.client_rest.model.CVsManager;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
+
+
 
 public class MainActivity extends Activity {
 	public final static String SERVER_URL="http://restserver-jaireda.rhcloud.com/REST_SERVER-0.3/rest/descvs";
@@ -49,17 +44,27 @@ public class MainActivity extends Activity {
 		 try {
 			this.cvs= new getAllCVs().execute().get();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		final ArrayAdapter adapter=new ArrayAdapter(getApplicationContext(), cvs); 
 		vList.setAdapter(adapter);
 		adapter.notifyDataSetChanged();
-		
+		vList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
+				
+				Intent in=new Intent(getBaseContext(), VDetailsCV.class);
+				in.putExtra("idcv", arg2);
+				startActivity(in);
+			}
+			
+		});
 		
        /* String str="<point><x>10</x><y>4</y></point>";
         
@@ -113,26 +118,7 @@ public class MainActivity extends Activity {
         
     }
     
-    class RetrieveFeedTask extends AsyncTask<String, Void,CV> {
-
-        private Exception exception;
-
-        protected CV doInBackground(String... urls) {
-        	final String url = SERVER_URL+"/2";
-
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.getMessageConverters().add(new SimpleXmlHttpMessageConverter());
-
-            CV cv=restTemplate.getForObject(url, CV.class);
-            System.out.println(cv.toString());
-            return cv;
-           
-        }
-
-        protected void onPostExecute() {
-            
-        }
-    }
+    
     class getAllCVs extends AsyncTask<String, Integer,CVsManager> {
 
         private Exception exception;
